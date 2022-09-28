@@ -5,8 +5,8 @@ ENV PORT 5000
 WORKDIR /app
 COPY . /app
 
-RUN ["npm", "install"]
+RUN ["npm", "install", "--only=prod"]
 
 EXPOSE $PORT
 
-CMD ["node", "src/server.js"]
+CMD ["npm", "run", "dev"]

@@ -1,17 +1,25 @@
 version: "3"
 
 services:
-  web:
+  api:
+    container_name: api-container
     build: .
+    command: "npm run dev"
     ports:
-      - "80:5000"
+      - "80:5000" # application
+      - "9229:9229" # debug
+    volumes:
+      - ./:/app/
     depends_on:
       - mysql
 
   mysql:
+    container_name: mysql-container
     image: mysql
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
     ports:
       - "3306:3306"
     expose:
