@@ -1,9 +1,17 @@
 const express = require("express");
 
-const { healthCheck } = require("./controllers/healthCheckController");
+const healthCheckController = require("./controllers/healthCheckController");
+const userController = require("./controllers/userController");
 
 const router = express.Router();
 
-router.get("/health-check", healthCheck);
+// healthCheckController routes
+router.get("/health-check", healthCheckController.healthCheck);
+
+// userController routes
+router.post("/user", userController.createUser);
+router.get("/user", userController.getUser);
+router.put("/user", userController.updateUser);
+router.delete("/user", userController.deleteUser);
 
 module.exports = router;
