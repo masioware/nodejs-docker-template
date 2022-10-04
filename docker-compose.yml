@@ -3,8 +3,9 @@ version: "3"
 services:
   api:
     container_name: api-container
-    build: .
-    command: "npm run dev"
+    image: "node:16"
+    working_dir: /app
+    command: bash -c "npm i && npm run dev"
     ports:
       - "80:5000" # application
       - "9229:9229" # debug
