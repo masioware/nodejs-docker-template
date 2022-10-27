@@ -1,7 +1,7 @@
 const userService = require("../services/userService");
 
 const createUser = async (req, res) => {
-  let { name, email } = req.body;
+  const { name, email } = req.body;
 
   await userService.create(name, email);
 
@@ -9,7 +9,7 @@ const createUser = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-  let { id } = req.query;
+  const { id } = req.query;
 
   const user = await userService.getById(id);
 
@@ -17,7 +17,7 @@ const getUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  let { id } = req.query;
+  const { id } = req.query;
 
   await userService.updateById(id, req.body);
 
@@ -25,7 +25,7 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-  let { id } = req.query;
+  const { id } = req.query;
 
   await userService.deleteById(id);
 
