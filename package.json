@@ -11,7 +11,9 @@
     "db:drop": "sequelize db:drop",
     "compose:up": "docker compose up",
     "compose:up -d": "docker compose up -d",
-    "compose:down": "docker compose down"
+    "compose:down": "docker compose down",
+    "format": "prettier -w .",
+    "lint": "eslint --fix ./**/*.js"
   },
   "keywords": [],
   "author": "",
